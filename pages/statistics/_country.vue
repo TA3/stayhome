@@ -75,7 +75,7 @@
           <span>Last updated: {{ cases.updated }}</span>
           <div class="countries">
             <span
-              v-for="(c, i) in countries.slice(0, 8)"
+              v-for="(c, i) in countries.slice(0, 15)"
               :key="i"
               class="ui label"
             >
@@ -146,7 +146,7 @@
         >
           <h3 class="uppercase">
             <i :class="country.toLowerCase()" class="flag"></i>
-            {{ countryCases.country }}
+            #{{ countryRank }} {{ countryCases.country }} 
           </h3>
           <span>Last updated: {{ cases.updated }}</span>
           <nuxt-link to="/statistics" class="right">
@@ -313,7 +313,8 @@ export default {
         isFetchingTimeline: true,
         isFetchingCountryCases: true
       },
-      incorrectCountry: false
+      incorrectCountry: false,
+      countryRank: 0
     }
   },
   computed: {},
@@ -395,10 +396,18 @@ export default {
         ]
         setTimeout(() => {
           this.status.isFetchingCountryCases = false
+          this.getRank()
         }, 100)
       } catch (error) {
         this.getCountryCases(this.country)
       }
+    },
+    getRank() {
+      this.countries.forEach((e, i) => {
+        if (e.countryInfo.iso2.toLowerCase() === this.country) {
+          this.countryRank = i + 1
+        }
+      })
     },
     formateDate(d) {
       const t = new Date(d)
