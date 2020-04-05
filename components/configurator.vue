@@ -42,7 +42,7 @@
         In a population of <span id="population">0</span>,
         <span id="infectionCause">0</span>
         <div class="circle redStroke"></div>
-        people whome show no symptoms has caused the infection to spread to
+        people whom show no symptoms, have caused the infection to spread to
         <span id="infections">0</span>
         <div class="circle red"></div>
         people. <span id="death">0</span>

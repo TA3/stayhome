@@ -21,7 +21,7 @@ body {
   line-height: 1.4em;
   color: #50504b;
   font-style: italic;
-  padding: 40px 0px !important;
+  padding: 40px 10px !important;
 }
 .result{
   #svg{
@@ -295,7 +295,7 @@ margin:50px 0px;
 
     
     .label{
-      &:nth-child(2){
+      &:nth-child(1){
         float: left;
       }
       &:nth-child(3){

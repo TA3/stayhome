@@ -367,30 +367,51 @@ export default {
         ).toFixed(3)
         this.countryCases.chartLabels = {}
         this.countryCases.chartLabels.cases = [
-          this.countryTimeline.dates.cases.slice(0)[0],
-          this.countryTimeline.dates.cases[
-            Math.floor((this.countryTimeline.dates.cases.length - 1) / 2)
-          ],
-          this.countryTimeline.dates.cases.slice(-1)[0]
+          this.formateDate(this.countryTimeline.dates.cases.slice(0)[0]),
+          this.formateDate(
+            this.countryTimeline.dates.cases[
+              Math.floor((this.countryTimeline.dates.cases.length - 1) / 2)
+            ]
+          ),
+          this.formateDate(this.countryTimeline.dates.cases.slice(-1)[0])
         ]
         this.countryCases.chartLabels.recovered = [
-          this.countryTimeline.dates.recovered.slice(0)[0],
-          this.countryTimeline.dates.recovered[
-            Math.floor((this.countryTimeline.dates.recovered.length - 1) / 2)
-          ],
-          this.countryTimeline.dates.recovered.slice(-1)[0]
+          this.formateDate(this.countryTimeline.dates.recovered.slice(0)[0]),
+          this.formateDate(
+            this.countryTimeline.dates.recovered[
+              Math.floor((this.countryTimeline.dates.recovered.length - 1) / 2)
+            ]
+          ),
+          this.formateDate(this.countryTimeline.dates.recovered.slice(-1)[0])
         ]
         this.countryCases.chartLabels.deaths = [
-          this.countryTimeline.dates.deaths.slice(0)[0],
-          this.countryTimeline.dates.deaths[
-            Math.floor((this.countryTimeline.dates.deaths.length - 1) / 2)
-          ],
-          this.countryTimeline.dates.deaths.slice(-1)[0]
+          this.formateDate(this.countryTimeline.dates.deaths.slice(0)[0]),
+          this.formateDate(
+            this.countryTimeline.dates.deaths[
+              Math.floor((this.countryTimeline.dates.deaths.length - 1) / 2)
+            ]
+          ),
+          this.formateDate(this.countryTimeline.dates.deaths.slice(-1)[0])
         ]
-        this.status.isFetchingCountryCases = false
+        setTimeout(() => {
+          this.status.isFetchingCountryCases = false
+        }, 100)
       } catch (error) {
         this.getCountryCases(this.country)
       }
+    },
+    formateDate(d) {
+      const t = new Date(d)
+      return (
+        t.getDate() +
+        '/' +
+        (parseInt(t.getMonth()) + 1) +
+        '/' +
+        t
+          .getFullYear()
+          .toString()
+          .slice(2, 4)
+      )
     },
     async getTimeline(c) {
       try {
