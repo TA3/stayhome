@@ -301,7 +301,7 @@ export default {
       country: this.$route.params.country,
       cases: {},
       countries: [],
-      countryCases: { chartLabels: { cases: [], deaths: [], recovered: [] } },
+      countryCases: {},
       countryTimeline: {
         values: { cases: [], deaths: [], recovered: [] },
         dates: { cases: [], deaths: [], recovered: [] }
@@ -323,7 +323,6 @@ export default {
     this.getCountries()
     if (this.country) {
       this.getTimeline(this.country)
-      this.getCountryCases(this.country)
     }
   },
   mounted() {
@@ -427,6 +426,7 @@ export default {
         const r = await this.$axios.$get(
           'https://corona.lmao.ninja/v2/historical/' + c
         )
+
         this.countryTimeline.dates.cases = Object.keys(r.timeline.cases)
         this.countryTimeline.values.cases = Object.values(r.timeline.cases)
         this.countryTimeline.dates.deaths = Object.keys(r.timeline.deaths)
@@ -440,6 +440,7 @@ export default {
           this.countryTimeline.dates.cases,
           'cases'
         )
+        this.getCountryCases(this.country)
         this.status.isFetchingTimeline = false
       } catch (error) {
         this.incorrectCountry = true
