@@ -27,21 +27,14 @@ window.$ = require('jquery')
 export default {
   created() {
     const analytics = document.createElement('script')
-    analytics.setAttribute(
-      'src',
-      'https://www.googletagmanager.com/gtag/js?id=UA-162752728-1'
-    )
-     window.dataLayer = window.dataLayer || [];
+    analytics.setAttribute('src', 'https://analytics.ta3.dev/tracker.js')
     analytics.setAttribute('async', '')
+    analytics.setAttribute(
+      'data-ackee-domain-id',
+      '15bea3d3-8031-4241-b1f1-5dd1b8ea7e22'
+    )
+    analytics.setAttribute('data-ackee-server', 'https://analytics.ta3.dev')
     document.head.appendChild(analytics)
-    this.gtag('js', new Date())
-
-    this.gtag('config', 'UA-162752728-1')
-  },
-  methods: {
-    gtag() {
-      window.dataLayer.push(arguments)
-    }
   }
 }
 </script>

@@ -148,8 +148,7 @@ module.exports = {
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern:
-          'https://www.googletagmanager.com/gtag/js?id=UA-162752728-1',
+        urlPattern: 'https://analytics.ta3.dev/.*',
         handler: 'cacheFirst',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
