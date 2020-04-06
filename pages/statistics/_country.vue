@@ -146,7 +146,7 @@
         >
           <h3 class="uppercase">
             <i :class="country.toLowerCase()" class="flag"></i>
-            #{{ countryRank }} {{ countryCases.country }} 
+            #{{ countryRank }} {{ countryCases.country }}
           </h3>
           <span>Last updated: {{ cases.updated }}</span>
           <nuxt-link to="/statistics" class="right">
@@ -157,7 +157,7 @@
           <div class="ui card">
             <div class="content">
               <div class="header">
-                {{ countryCases.cases }}
+                {{ countryCases.cases.toLocaleString() }}
                 <span
                   >+{{
                     Math.abs(
@@ -179,7 +179,7 @@
           <div class="ui card">
             <div class="content">
               <div class="header">
-                {{ countryCases.deaths }}
+                {{ countryCases.deaths.toLocaleString() }}
                 <span
                   >+{{
                     Math.abs(
@@ -201,7 +201,7 @@
           <div class="ui card">
             <div class="content">
               <div class="header">
-                {{ countryCases.recovered }}
+                {{ countryCases.recovered.toLocaleString() }}
                 <span
                   >+{{
                     Math.abs(
@@ -233,8 +233,14 @@
         <div v-if="country !== undefined" class="sixteen wide column chart">
           <div class="chartTitle">
             <div class="red circle small"></div>
-            {{ filter }}
+            Cases
           </div>
+          <span
+            :class="showChartData ? 'dates' : ''"
+            class="ui label"
+            @click="showChartData = !showChartData"
+            >Dates</span
+          >
           <trend
             :data="countryTimeline.values.cases"
             :gradient="['#ff3b2c', '#ffca66', '#122108']"
@@ -242,10 +248,15 @@
             smooth
           >
           </trend>
-          <div class="labels">
+          <div v-if="!showChartData" class="labels">
             <span class="label">{{ countryCases.chartLabels.cases[0] }}</span>
             <span class="label">{{ countryCases.chartLabels.cases[1] }}</span>
             <span class="label">{{ countryCases.chartLabels.cases[2] }}</span>
+          </div>
+          <div v-if="showChartData" class="labels">
+            <span class="label">{{ countryCases.chartLabels.cases[3] }}</span>
+            <span class="label">{{ countryCases.chartLabels.cases[4] }}</span>
+            <span class="label">{{ countryCases.cases.toLocaleString() }}</span>
           </div>
         </div>
         <div v-if="country !== undefined" class="sixteen wide column chart">
@@ -253,6 +264,12 @@
             <div class="black circle small"></div>
             Death
           </div>
+          <span
+            :class="showChartData ? 'dates' : ''"
+            class="ui label"
+            @click="showChartData = !showChartData"
+            >Dates</span
+          >
           <trend
             :data="countryTimeline.values.deaths"
             :gradient="['#191919', '#122108', '#ffca66']"
@@ -260,10 +277,17 @@
             smooth
           >
           </trend>
-          <div class="labels">
+          <div v-if="!showChartData" class="labels">
             <span class="label">{{ countryCases.chartLabels.deaths[0] }}</span>
             <span class="label">{{ countryCases.chartLabels.deaths[1] }}</span>
             <span class="label">{{ countryCases.chartLabels.deaths[2] }}</span>
+          </div>
+          <div v-if="showChartData" class="labels">
+            <span class="label">{{ countryCases.chartLabels.deaths[3] }}</span>
+            <span class="label">{{ countryCases.chartLabels.deaths[4] }}</span>
+            <span class="label">{{
+              countryCases.deaths.toLocaleString()
+            }}</span>
           </div>
         </div>
         <div v-if="country !== undefined" class="sixteen wide column chart">
@@ -271,6 +295,12 @@
             <div class="green circle small"></div>
             Recovered
           </div>
+          <span
+            :class="showChartData ? 'dates' : ''"
+            class="ui label"
+            @click="showChartData = !showChartData"
+            >Dates</span
+          >
           <trend
             :data="countryTimeline.values.recovered"
             :gradient="['#42b983', '#5daf82', '#2c3e50']"
@@ -278,7 +308,7 @@
             smooth
           >
           </trend>
-          <div class="labels">
+          <div v-if="!showChartData" class="labels">
             <span class="label">{{
               countryCases.chartLabels.recovered[0]
             }}</span>
@@ -287,6 +317,17 @@
             }}</span>
             <span class="label">{{
               countryCases.chartLabels.recovered[2]
+            }}</span>
+          </div>
+          <div v-if="showChartData" class="labels">
+            <span class="label">{{
+              countryCases.chartLabels.recovered[3]
+            }}</span>
+            <span class="label">{{
+              countryCases.chartLabels.recovered[4]
+            }}</span>
+            <span class="label">{{
+              countryCases.recovered.toLocaleString()
             }}</span>
           </div>
         </div>
@@ -307,6 +348,7 @@ export default {
         dates: { cases: [], deaths: [], recovered: [] }
       },
       filter: 'cases',
+      showChartData: false,
       status: {
         isFetchingCases: true,
         isFetchingCountries: true,
@@ -373,7 +415,11 @@ export default {
               Math.floor((this.countryTimeline.dates.cases.length - 1) / 2)
             ]
           ),
-          this.formateDate(this.countryTimeline.dates.cases.slice(-1)[0])
+          this.formateDate(this.countryTimeline.dates.cases.slice(-1)[0]),
+          this.countryTimeline.values.cases.slice(0)[0].toLocaleString(),
+          this.countryTimeline.values.cases[
+            Math.floor((this.countryTimeline.dates.cases.length - 1) / 2)
+          ].toLocaleString()
         ]
         this.countryCases.chartLabels.recovered = [
           this.formateDate(this.countryTimeline.dates.recovered.slice(0)[0]),
@@ -382,7 +428,11 @@ export default {
               Math.floor((this.countryTimeline.dates.recovered.length - 1) / 2)
             ]
           ),
-          this.formateDate(this.countryTimeline.dates.recovered.slice(-1)[0])
+          this.formateDate(this.countryTimeline.dates.recovered.slice(-1)[0]),
+          this.countryTimeline.values.recovered.slice(0)[0].toLocaleString(),
+          this.countryTimeline.values.recovered[
+            Math.floor((this.countryTimeline.dates.deaths.length - 1) / 2)
+          ].toLocaleString()
         ]
         this.countryCases.chartLabels.deaths = [
           this.formateDate(this.countryTimeline.dates.deaths.slice(0)[0]),
@@ -391,7 +441,11 @@ export default {
               Math.floor((this.countryTimeline.dates.deaths.length - 1) / 2)
             ]
           ),
-          this.formateDate(this.countryTimeline.dates.deaths.slice(-1)[0])
+          this.formateDate(this.countryTimeline.dates.deaths.slice(-1)[0]),
+          this.countryTimeline.values.deaths.slice(0)[0].toLocaleString(),
+          this.countryTimeline.values.deaths[
+            Math.floor((this.countryTimeline.dates.deaths.length - 1) / 2)
+          ].toLocaleString()
         ]
         setTimeout(() => {
           this.status.isFetchingCountryCases = false

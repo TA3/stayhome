@@ -273,10 +273,23 @@ margin:50px 0px;
   font-weight: 600;
   text-align: left;
   display: block;
-  padding: 20px 0px 0px 20px;
+  padding: 0px 0px 0px 10px;
   color: #adaa9e;
   transition: color 0.5s ease-in-out;
 
+}
+.ui.label{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: #eae9e6;
+  transition: all 0.3s ease-out;
+  color: rgba(94, 93, 91, 0.7);
+  &.dates{
+    background: transparent;
+  transition: all 0.3s ease-in;
+  }
 }
 &:hover{
   .chartTitle{
@@ -286,6 +299,9 @@ margin:50px 0px;
   .labels{
   color: #2f2e29;
   transition: color 0.5s ease-in-out;
+  }
+  .ui.label{
+    color: rgba(94, 93, 91, 1);
   }
 }
   .labels{

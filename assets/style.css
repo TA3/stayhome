@@ -340,10 +340,27 @@ div.circle.small {
   font-weight: 600;
   text-align: left;
   display: block;
-  padding: 20px 0px 0px 20px;
+  padding: 0px 0px 0px 10px;
   color: #adaa9e;
   -webkit-transition: color 0.5s ease-in-out;
   transition: color 0.5s ease-in-out;
+}
+
+.chart .ui.label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: #eae9e6;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  color: rgba(94, 93, 91, 0.7);
+}
+
+.chart .ui.label.dates {
+  background: transparent;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .chart:hover .chartTitle {
@@ -356,6 +373,10 @@ div.circle.small {
   color: #2f2e29;
   -webkit-transition: color 0.5s ease-in-out;
   transition: color 0.5s ease-in-out;
+}
+
+.chart:hover .ui.label {
+  color: #5e5d5b;
 }
 
 .chart .labels {
