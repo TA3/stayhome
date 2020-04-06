@@ -146,6 +146,12 @@ module.exports = {
         handler: 'cacheFirst',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: 'https://analytics.ta3.dev/.*',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       }
     ]
   },

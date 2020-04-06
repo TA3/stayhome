@@ -23,5 +23,18 @@ window.$ = require('jquery')
     </footer>
   </div>
 </template>
-export default{ head: {script: [{src:
-'https://code.jquery.com/jquery-3.4.1.min.js',type: "text/javascript"} ], }, }
+<script>
+export default {
+  created() {
+    const analytics = document.createElement('script')
+    analytics.setAttribute('src', 'https://analytics.ta3.dev/tracker.js')
+    analytics.setAttribute('async', '')
+    analytics.setAttribute(
+      'data-ackee-domain-id',
+      '15bea3d3-8031-4241-b1f1-5dd1b8ea7e22'
+    )
+    analytics.setAttribute('data-ackee-server', 'https://analytics.ta3.dev')
+    document.head.appendChild(analytics)
+  }
+}
+</script>
