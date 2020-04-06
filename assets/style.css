@@ -232,8 +232,20 @@ div.circle.small {
   border: none !important;
 }
 
+.menu .item {
+  font-size: 1.2em;
+}
+
 .menu .item:before {
   display: none;
+}
+
+.menu > .active.item {
+  background: #ebebe5 !important;
+  -webkit-box-shadow: 20px 20px 60px 15px #bebeb9, -20px -20px 60px #ffffff !important;
+          box-shadow: 20px 20px 60px 15px #bebeb9, -20px -20px 60px #ffffff !important;
+  -webkit-transition: all 0.3s ease-out !important;
+  transition: all 0.3s ease-out !important;
 }
 
 .ui.pointing.label {

@@ -177,12 +177,18 @@ box-shadow:  20px 20px 60px #bebeb9,
 .menu {
   background: none !important;
   border: none !important;
-
+  .item{
+    font-size: 1.2em;
+  }
   .item:before {
     display: none;
   }
+} 
+.menu > .active.item{
+  background: #ebebe5 !important;
+    box-shadow: 20px 20px 60px 15px #bebeb9, -20px -20px 60px #ffffff !important;
+    transition: all 0.3s ease-out !important;
 }
-
 .ui.pointing.label {
   top: 55px;
 }
