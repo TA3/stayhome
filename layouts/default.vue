@@ -35,6 +35,12 @@ export default {
     )
     analytics.setAttribute('data-ackee-server', 'https://analytics.ta3.dev')
     document.head.appendChild(analytics)
+
+
+    const feedback = document.createElement('script')
+    feedback.setAttribute('src', 'https://w.appzi.io/bootstrap/bundle.js?token=2Dx1V')
+    feedback.setAttribute('async', '')
+    document.head.appendChild(feedback)
   }
 }
 </script>
