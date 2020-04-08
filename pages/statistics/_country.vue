@@ -386,7 +386,7 @@ export default {
     })
     setTimeout(() => {
       window.$('a.right').popup()
-    }, 500)
+    }, 1000)
   },
   methods: {
     clearCache() {
