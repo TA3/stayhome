@@ -141,17 +141,17 @@ module.exports = {
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
-      {
-        urlPattern: 'https://corona.lmao.ninja/.*',
-        handler: 'cacheFirst',
-        method: 'GET',
-        strategyOptions: {
-          cacheableResponse: { statuses: [0, 200] },
-          cacheExpiration: {
-            maxAgeSeconds: 3600
-          }
-        }
-      },
+      // {
+      //   urlPattern: 'https://corona.lmao.ninja/.*',
+      //   handler: 'cacheFirst',
+      //   method: 'GET',
+      //   strategyOptions: {
+      //     cacheableResponse: { statuses: [0, 200] },
+      //     cacheExpiration: {
+      //       maxAgeSeconds: 3600
+      //     }
+      //   }
+      // },
       {
         urlPattern: 'https://analytics.ta3.dev/.*',
         handler: 'cacheFirst',

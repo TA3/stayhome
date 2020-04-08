@@ -149,9 +149,22 @@
             #{{ countryRank }} {{ countryCases.country }}
           </h3>
           <span>Last updated: {{ cases.updated }}</span>
-          <nuxt-link to="/statistics" class="right">
+          <nuxt-link
+            data-content="Close"
+            data-position="top right"
+            to="/statistics"
+            class="right"
+          >
             <i class="remove icon"></i>
           </nuxt-link>
+          <a
+            data-content="Clear Cache"
+            data-position="top right"
+            class="right"
+            @click="clearCache()"
+          >
+            <i class="sync alternate icon"></i>
+          </a>
         </div>
         <div v-if="country !== undefined" class="four wide column">
           <div class="ui card">
@@ -371,8 +384,19 @@ export default {
     window.$('.ui.dropdown').dropdown({
       clearable: false
     })
+    setTimeout(() => {
+      window.$('a.right').popup()
+    }, 500)
   },
   methods: {
+    clearCache() {
+      caches.keys().then((cacheNames) => {
+        cacheNames.forEach((cacheName) => {
+          caches.delete(cacheName)
+        })
+        window.location.reload()
+      })
+    },
     removeDuplicates(array, arrayVal, f) {
       // eslint-disable-next-line no-var
       var d = []
