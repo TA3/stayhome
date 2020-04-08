@@ -159,6 +159,10 @@ box-shadow:  20px 20px 60px #bebeb9,
     float: right;
     position: relative;
     top: -20px;
+    .sync{
+      font-size: 1.2em;
+      cursor: pointer;
+    }
     }
   }
   .countries{
@@ -175,6 +179,7 @@ box-shadow:  20px 20px 60px #bebeb9,
   }
 }
 .menu {
+  padding-top: 20px;
   background: none !important;
   border: none !important;
   .item{
@@ -368,6 +373,21 @@ margin:50px 0px;
 
 
 
+.statisticsMessage{
+  text-align: center;
+  a{
+    cursor: pointer;
+    font-size: 1.2em;
+    background: #f6f5f0;
+    box-shadow: 20px 17px 60px 1px #bebeb9, -20px -20px 60px #ffffff;
+    padding: 10px 15px;
+    color: #484845;
+    border-radius: 5px;
+  }
+  .chart.icon{
+    background: transparent;
+  }
+}
 
 
 body.darkmode--activated{

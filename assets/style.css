@@ -211,6 +211,11 @@ div.circle.small {
   top: -20px;
 }
 
+.title.sub a.right .sync {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
 .title .countries {
   padding-top: 10px;
 }
@@ -228,6 +233,7 @@ div.circle.small {
 }
 
 .menu {
+  padding-top: 20px;
   background: none !important;
   border: none !important;
 }
@@ -451,6 +457,25 @@ div.circle.small {
   opacity: 0;
   height: auto;
   max-height: 0;
+}
+
+.statisticsMessage {
+  text-align: center;
+}
+
+.statisticsMessage a {
+  cursor: pointer;
+  font-size: 1.2em;
+  background: #f6f5f0;
+  -webkit-box-shadow: 20px 17px 60px 1px #bebeb9, -20px -20px 60px #ffffff;
+          box-shadow: 20px 17px 60px 1px #bebeb9, -20px -20px 60px #ffffff;
+  padding: 10px 15px;
+  color: #484845;
+  border-radius: 5px;
+}
+
+.statisticsMessage .chart.icon {
+  background: transparent;
 }
 
 body.darkmode--activated {
