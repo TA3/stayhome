@@ -10,7 +10,8 @@
       <div class="fifteen wide column message">
         "The following is a simulation to demonstrate the power of staying home.
         <br />
-        Algorithim used is 'very close' to the actual COVID-19 world statistics."
+        Algorithim used is 'very close' to the actual COVID-19 world
+        statistics."
         <br />
         <br />
         Stay home stay safe.
@@ -28,6 +29,12 @@
         </h3>
       </div>
       <configurator :hide-config="arrowDown" />
+    </div>
+    <div class="statisticsMessage">
+      <nuxt-link to="/statistics"
+        ><i class="chart bar outline icon"></i> View live COVID-19
+        statistics</nuxt-link
+      >
     </div>
   </div>
 </template>
