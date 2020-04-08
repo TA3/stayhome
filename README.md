@@ -1,4 +1,4 @@
-<img src="https://github.com/TA3/stayhome/raw/master/logo.png">
+<p align="center"><img width="200px" align="center" src="https://github.com/TA3/stayhome/raw/master/logo.png"></p>
 <h1 style="text-align:center;">Stay Home</h1>
 
 > A PWA enabled web-app with a simulation to demonstrate the "power" of staying home along with live statistics. Algorithm used is 'very close' to the actual COVID-19 world statistics.
@@ -10,7 +10,7 @@
 - jQuery
   
 ## Data
-Data is fed from the <a href="https://github.com/NovelCOVID">NovelCOVID</a> API
+Data provided by <a href="https://github.com/NovelCOVID">NovelCOVID</a> API
 
 ## Preview
 <img src="https://github.com/TA3/stayhome/raw/master/sim.png">
