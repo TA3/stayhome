@@ -10,7 +10,7 @@
       <div class="fifteen wide column message">
         "The following is a simulation to demonstrate the power of staying home.
         <br />
-        Algorithim used is 'very close' to the actual COVID-19 world
+        Algorithm used is 'very close' to the actual COVID-19 world
         statistics."
         <br />
         <br />
