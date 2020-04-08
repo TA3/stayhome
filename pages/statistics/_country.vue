@@ -481,7 +481,10 @@ export default {
     },
     getRank() {
       this.countries.forEach((e, i) => {
-        if (e.countryInfo.iso2.toLowerCase() === this.country) {
+        if (
+          e.countryInfo.iso2.toLowerCase() === this.country.toLowerCase() ||
+          e.country.toLowerCase() === this.country.toLowerCase()
+        ) {
           this.countryRank = i + 1
         }
       })
