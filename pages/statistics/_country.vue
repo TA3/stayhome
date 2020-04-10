@@ -550,6 +550,9 @@ export default {
           this.countries.push(e)
         }
       })
+      this.countries.sort((b, a) => {
+        return a.cases - b.cases
+      })
       this.status.isFetchingCountries = false
     },
     search(input) {
