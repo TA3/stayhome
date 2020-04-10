@@ -1,7 +1,7 @@
 {
   "name": "StayHome",
   "version": "1.0.0",
-  "description": "Statistics about the COVID-19.",
+  "description": "Live statistics about the COVID-19 Coronavirus. Simulation on the power of staying home.",
   "author": "Taha Al-Jody",
   "private": true,
   "scripts": {
