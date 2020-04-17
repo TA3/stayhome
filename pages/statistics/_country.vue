@@ -424,7 +424,7 @@ export default {
     },
     async getCountryCases(c) {
       const r = await this.$axios.$get(
-        'https://corona.lmao.ninja/countries/' + c
+        'https://corona.lmao.ninja/v2/countries/' + c
       )
       try {
         this.countryCases = r
@@ -535,7 +535,7 @@ export default {
       }
     },
     async getCases() {
-      const r = await this.$axios.$get('https://corona.lmao.ninja/all')
+      const r = await this.$axios.$get('https://corona.lmao.ninja/v2/all')
       this.cases = r
       this.cases.cases = r.cases.toLocaleString()
       this.cases.deaths = r.deaths.toLocaleString()
@@ -544,7 +544,7 @@ export default {
       this.status.isFetchingCases = false
     },
     async getCountries() {
-      const r = await this.$axios.$get('https://corona.lmao.ninja/countries')
+      const r = await this.$axios.$get('https://corona.lmao.ninja/v2/countries')
       r.forEach((e) => {
         if (e.countryInfo.iso2 != null) {
           this.countries.push(e)
