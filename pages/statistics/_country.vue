@@ -424,7 +424,7 @@ export default {
     },
     async getCountryCases(c) {
       const r = await this.$axios.$get(
-        'https://corona.lmao.ninja/v2/countries/' + c
+        'https://disease.sh/v3/covid-19/countries/' + c
       )
       try {
         this.countryCases = r
@@ -505,7 +505,7 @@ export default {
     async getTimeline(c) {
       try {
         const r = await this.$axios.$get(
-          'https://corona.lmao.ninja/v2/historical/' + c
+          'https://disease.sh/v3/covid-19/historical/' + c
         )
 
         this.countryTimeline.dates.cases = Object.keys(r.timeline.cases)
@@ -535,7 +535,7 @@ export default {
       }
     },
     async getCases() {
-      const r = await this.$axios.$get('https://corona.lmao.ninja/v2/all')
+      const r = await this.$axios.$get('https://disease.sh/v3/covid-19/all')
       this.cases = r
       this.cases.cases = r.cases.toLocaleString()
       this.cases.deaths = r.deaths.toLocaleString()
@@ -544,7 +544,7 @@ export default {
       this.status.isFetchingCases = false
     },
     async getCountries() {
-      const r = await this.$axios.$get('https://corona.lmao.ninja/v2/countries')
+      const r = await this.$axios.$get('https://disease.sh/v3/covid-19/countries')
       r.forEach((e) => {
         if (e.countryInfo.iso2 != null) {
           this.countries.push(e)
