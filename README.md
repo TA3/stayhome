@@ -10,7 +10,7 @@
 - jQuery
   
 ## Data
-Data provided by <a href="https://github.com/NovelCOVID">NovelCOVID</a> API
+Data provided by <a href="https://github.com/disease-sh/API">disease.sh</a> API
 
 ## Preview
 <img src="https://github.com/TA3/stayhome/raw/master/sim.png">
